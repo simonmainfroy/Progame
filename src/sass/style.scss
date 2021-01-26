@@ -1,0 +1,22 @@
+@import '~bootstrap/scss/bootstrap';
+
+$color-red: rgb(255, 20, 20);
+
+body {
+  background-color: #191919;
+  color: white;
+}
+a{
+	text-transform: none;
+	color: red;
+}
+
+p {
+  color: white;
+  font-family: 'Big Noodles';
+}
+
+@font-face {
+  font-family: 'Big Noodles';
+  src: url('../fonts/big_noodle_titling.ttf');
+}
