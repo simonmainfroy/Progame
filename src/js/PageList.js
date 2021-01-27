@@ -1,31 +1,10 @@
+import { pictPlatforms } from './toolsList';
+
 const PageList = (argument = "") => {
+
   const preparePage = () => {
     var cleanedArgument = argument.replace(/\s+/g, "-");
     let games = "";
-
-    const pictPlatforms = (platforms) => {
-      let platformsAvailable = "";
-      platforms.forEach(platform => {
-        switch(platform.platform.name) {
-          case "PC":
-          platformsAvailable += `<img src="./src/images/windows.svg" alt="icon-pc">`;
-          break;
-          case "Xbox":
-          platformsAvailable += `<img src="./src/images/xbox.svg" alt="icon-pc">`;
-          break;
-          case "Playstation":
-          platformsAvailable += `<img src="./src/images/ps4.svg" alt="icon-pc">`;
-          break;
-          case "Nintendo":
-          platformsAvailable += `<img src="./src/images/switch.svg" alt="icon-pc">`;
-          break;
-          default: //leave blank
-          break;
-        }
-      });
-      return platformsAvailable;
-    }
-
 
     const fetchList = (url, argument) => {
       let finalURL = url;
@@ -53,25 +32,23 @@ const PageList = (argument = "") => {
             </a>
           </div>
           `;
-
-
-
         });
         document.querySelector(".games").innerHTML = games;
-        // document.querySelector(".page-list .games").innerHTML = games; 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+        //document.querySelector(".page-list .games").innerHTML = games;🔴
       });
     };
-
     fetchList("https://api.rawg.io/api/games", cleanedArgument);
   };
+
+
 
   const render = () => {
     console.log("render PageList");
     pageContent.innerHTML = `
-      ...loading
-    `;
+      <h2>...loading<h2>
+      `;
     // <section class="page-list">
-    // </section>                     🔴🔴🔴🔴🔴🔴🔴
+    // </section>🔴
 
     preparePage();
   };

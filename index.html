@@ -1,16 +1,24 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./dist/bundle.css">
   <title>Hyper Progame</title>
 </head>
+
 <body>
-	<h1> <a href="#">The Hyper Progame</a></h1>
-	<form id="searchForm" class="form-inline" style="margin-top: 5vh; font:normal 24px monospace;">
-    <input type="text" id="searchValue" class="form-control" placeholder="Search best Movies 😎">
-    <input style="margin-top: 15px; display: none;" type="submit" id="btnSearch" value="Search Movie" class="btn btn-primary btn-lg">
-  </form>
+
+  <div class="topBar">
+    <nav class="navbar justify-content-between">
+      <h1><a classe ="navbar-brand" href="#">The Hyper Progame</a></h1>
+      <form id="searchForm" class="form-inline" style="margin-top: 5vh; font:normal 24px monospace;">
+        <input type="text" id="searchValue" class="form-control" placeholder="Search best Movies 😎">
+        <input style="margin-top: 15px; display: none;" type="submit" id="btnSearch" class="btn btn-primary btn-lg">
+      </form>
+    </nav>
+  </div>
+
 
   <div class="container">
 
@@ -21,11 +29,11 @@
       <div class="row row-cols-3 games" id="pageContent">
       </div>
     </section>
-  </div>
 
-<!--   <button class="btn btn-primary" id="btnTest">COUCOU</button> -->
+  </div>
 
   <script src="./dist/bundle.js"></script>
 
 </body>
+
 </html>
