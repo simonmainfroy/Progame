@@ -105,8 +105,10 @@ const PageList = (argument = "") => {
     console.log("render PageList");
     pageDetailContent.innerHTML = ``
     pageContent.innerHTML = `
+    <div class="container">
     <div class="row row-cols-3 games">
     <h2>...loading<h2>
+    </div>
     </div>
     `;
     preparePage();
