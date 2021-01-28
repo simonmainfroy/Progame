@@ -1,5 +1,7 @@
 import { PageList } from './PageList';
 
+
+
 const pictPlatforms = (platforms) => {
   let platformsAvailable = "";
   platforms.forEach(platform => {
@@ -23,4 +25,29 @@ const pictPlatforms = (platforms) => {
   return platformsAvailable;
 }
 
-export { pictPlatforms };
+
+
+const hoverCards = () => {
+  let hoverCard = document.getElementsByClassName("cardEachGame").onmouseover = function() {
+    console.log("pourt");
+    console.log(hoverCard);
+    this.style.backgroundColor = "blue";
+  };
+};
+
+
+
+const OldshowMore = () => {
+  // let button = document.getElementById("button");
+  // const newFetch = () => {
+  // console.log("coucou");
+  //   button.removeEventListener("click", newFetch);
+  //   fetchList(response.next)
+  //   console.log("response next:", response.next);
+  // };
+  // button.addEventListener("click", newFetch);
+};
+
+
+
+export { pictPlatforms, OldshowMore, hoverCards };

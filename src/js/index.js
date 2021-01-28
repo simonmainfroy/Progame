@@ -2,6 +2,8 @@ import '../sass/style.scss';
 import { routes } from './routes';
 import { PageList } from './PageList';
 
+
+
 const searchForm = document.getElementById("searchForm");
 
 const MyRoute = () => {
@@ -32,6 +34,8 @@ const MyRoute = () => {
   window.addEventListener("hashchange", () => setRoute());
   window.addEventListener("DOMContentLoaded", () => setRoute());
 };
+
+
 
 export { MyRoute };
 MyRoute();
