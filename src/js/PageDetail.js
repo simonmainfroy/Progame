@@ -1,6 +1,10 @@
+import { ContentPageDetail } from './contentPageDetail';
+
 const PageDetail = (argument) => {
   const preparePage = () => {
     var cleanedArgument = argument.replace(/\s+/g, "-");
+
+    let gameDOM = document.querySelector("div#pageDetailContent");
 
     const fetchGame = (url, argument) => {
       let finalURL = url + argument;
@@ -11,7 +15,7 @@ const PageDetail = (argument) => {
           console.log("pagedetail reponse:", response);
 
         // Response and info needed :
-          let { name, released, description, background_image, rating, developers, platforms, publishers, genres, tags, stores, ratings_count, website} = response;
+          let { name, released, description, background_image, rating, developers, platforms, publishers, genres, tags, stores, ratings_count, website, clip} = response;
 
 
         // ####################################################
@@ -59,9 +63,9 @@ const PageDetail = (argument) => {
 
           // #########################################################
 
-          let gameDOM = document.querySelector("div#pageDetailContent");
+          
 
-          gameDOM.querySelector("h1.title").innerHTML = name;
+          gameDOM.querySelector("h2.title").innerHTML = name;
           gameDOM.querySelector("p.rating span.ratingNote").innerHTML = rating;
           gameDOM.querySelector("p.rating span.numberNote").innerHTML = ratings_count;
           gameDOM.querySelector("p.description").innerHTML = description;
@@ -74,84 +78,107 @@ const PageDetail = (argument) => {
           gameDOM.querySelector("div.genres").innerHTML = genresAvailable;
           gameDOM.querySelector("div.tags").innerHTML = tagsAvailable;
           gameDOM.querySelector("ul.buyStore").innerHTML = storesAvailable;
+          
 
 
          });
+
+        // ###########################################
+        // New fetch Screenshots
+        // ###########################################
+
+        let screenshotsURL = url + argument + "/screenshots";
+        console.log(screenshotsURL);
+        fetch(`${screenshotsURL}`)
+        .then((response) => response.json())
+        .then((response) => {
+
+          let {results} = response;
+
+
+          // Boucle screenshots :
+          let screenshotAvailable = "";
+          results.forEach((screenshot) => {
+            screenshotAvailable += `<div class="protectImg"><img src="${screenshot.image}"></div> ` 
+          }); 
+
+
+          gameDOM.querySelector("div#imgScreenshots").innerHTML = screenshotAvailable;
+
+        });
+
+
+        // ###########################################
+        // New fetch Trailer
+        // ###########################################
+
+        let moviesURL = url + argument + "/movies";
+        console.log(moviesURL);
+        fetch(`${moviesURL}`)
+        .then((response) => response.json())
+        .then((response) => {
+          //console.log("pagedetail moviesURL response:", response);
+          if(response.count > 0){
+            gameDOM.querySelector("div#videotrailer video").innerHTML = `<source src="${response.results[0].data.max}" type="video/mp4"> `;
+          }
+        });
+
+        // ###########################################
+        // New fetch Youtube
+        // ###########################################
+
+        // https://www.youtube.com/watch?v=${variable}   F9tni2Z-T0w
+        // <iframe width="420" height="345" src="https://www.youtube.com/embed/F9tni2Z-T0w"> </iframe>
+
+
+
+        let youtubeURL = url + argument + "/youtube";
+        console.log(youtubeURL);
+        fetch(`${youtubeURL}`)
+        .then((response) => response.json())
+        .then((response) => {
+          let {results} = response;
+          console.log("pagedetail youtube response:", results);
+
+
+          let contentYoutubeBis = "";
+          for(let i = 1; i<4; i++){
+            contentYoutubeBis += `
+            <div>
+              <div><iframe width="420" height="345" src="https://www.youtube.com/embed/${results[i].external_id}"></iframe></div>
+              <div>
+                <h5>${results[i].channel_title}</h5>
+                <p>${results[i].created}</p>
+              </div>
+            </div>
+              ` 
+          }; 
+
+
+          let testYoutube = `
+            <div><iframe width="420" height="345" src="https://www.youtube.com/embed/${results[0].external_id}"></iframe></div>
+            <div>
+              <h5>${results[0].channel_title}</h5>
+              <p>${results[0].created}</p>
+            </div>
+
+          ` //youtubeContent
+          gameDOM.querySelector("div#youtubeContent").innerHTML = testYoutube;
+          gameDOM.querySelector("div#youtubeContentBis").innerHTML = contentYoutubeBis;
+
+
+        });
+
+
     };
     fetchGame("https://api.rawg.io/api/games/", cleanedArgument);
   };
 
   const render = () => {
     pageContent.innerHTML = ``;
-    pageDetailContent.innerHTML = `
-      <section class="page-detail">
-
-        <div class="game">
-
-          <div class="imgTop">
-
-          </div>
-          <button class="btn buttonWebsite"> </button>
-
-          <h1 class="title"></h1>
-          <p class="rating"> <span class="ratingNote"> </span> /5 - <span class="numberNote"></span> votes</p>
-          <p class="description"></p>
-
-          <div class="informationsRow">
-            <div class="release-date">
-              <h5>Released Date</h5>
-              <span class="dateReleased"> </span>
-            </div>
-            <div>
-              <h5>Developer</h5>
-              <div class="developers"></div>
-            </div>
-            <div>
-              <h5>Platforms</h5>
-              <div class="platforms"></div>
-            </div>
-            <div>
-              <h5>Publishers</h5>
-              <div class="publishers"></div>
-            </div>
-            <div>
-              <h5>Genres</h5>
-              <div class="genres"></div>
-            </div>
-            <div>
-              <h5>Tags</h5>
-              <div class="tags"></div>
-            </div>
-          </div>
-          <div>
-            <h3>Buy</h3>
-            <ul class="buyStore"> </ul>
-          </div>
-          <div>
-            <h3> Trailer </h3>
-            <div><video width="640" height="480" controls>
-  <source src="https://media.rawg.io/media/stories-640/c10/c10ef05b12482e4d2c647c4e26138d5b.mp4" type="video/mp4">
-</video></div>
-
-          </div>
-
-
-
-        </div>
-      </section>
-    `;
-
-
-
+    pageDetailContent.innerHTML = ContentPageDetail();
 
     preparePage();
-
-  // const testss = () => {
-  //   console.log("sfqsdqsdqsd");
-  // }
-
-  // const btnTest = document.getElementById("btnTest");
-  // btnTest.addEventListener("click", () => testss());
 
   };
 
@@ -167,22 +194,7 @@ export { PageDetail };
 
 
 
-// pageContent.innerHTML = `
-
-//           <img src="${response.background_image}">
-
-//         <div class="game">
-//           <h1 class="title">${response.name}</h1>
-//           <p> ${response.rating} </p>
-//           <p class="description">${response.description}</p>
-//         </div>
-//         <div>
-//         <p>${response.released}</p>
-//         <p>${response.developers[0].name}</p>
-//         <p>${response.platforms[0].platform.name}</p>
-//         <p>${response.publishers[0].name}</p>
-//         <p>${response.genres[0].name}</p>
-//         <p>${response.tags[0].name}</p>
-//         </div>
-//       </section>
-//     `;
+// https://api.rawg.io/api/games/{id}/movies -> Trailer
+// https://api.rawg.io/api/games/{game_pk}/screenshots -> Screenshots
+// https://api.rawg.io/api/games/{id}/youtube -> Youtube
+// Similare games ?
