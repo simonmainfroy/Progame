@@ -59,7 +59,7 @@ const PageDetail = (argument) => {
 
           // #########################################################
 
-          let gameDOM = document.querySelector(".page-detail .game");
+          let gameDOM = document.querySelector("div#pageDetailContent");
 
           gameDOM.querySelector("h1.title").innerHTML = name;
           gameDOM.querySelector("p.rating span.ratingNote").innerHTML = rating;
@@ -82,8 +82,8 @@ const PageDetail = (argument) => {
   };
 
   const render = () => {
-
-    pageContent.innerHTML = `
+    pageContent.innerHTML = ``;
+    pageDetailContent.innerHTML = `
       <section class="page-detail">
 
         <div class="game">
