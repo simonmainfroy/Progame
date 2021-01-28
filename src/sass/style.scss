@@ -5,7 +5,7 @@
   src: url('../fonts/big_noodle_titling.ttf');
 }
 
-$color-red: rgb(255, 20, 20);
+$color-red: #D20A32; 
 
 body {
   background-color: #191919;
@@ -13,15 +13,74 @@ body {
 }
 a{
 	text-transform: none;
-	color: red;
+	color: #D20A32;
+	text-decoration : none;
 }
 
 p {
   color: white;
-  font-family: 'Big Noodles';
+  text-align: justify;
+  
 }
 
 
 .cardEachGame {
   background-color: #191919;
+}
+
+.informationsRow{
+	display: flex;
+	flex-wrap:wrap;
+}
+
+.informationsRow>div{
+
+	padding-top: 2em;
+    flex: 0 0 33.3333333333%;
+	max-width: 33%;
+}
+
+.rating{
+	color:#D20A32;
+	text-align: right;
+}
+
+.buttonWebsite{
+	background-color:#D20A32;
+	padding: 10px;
+	color:white;
+	margin: -100px 50px;
+}
+
+.buttonWebsite a{
+	color:white;
+
+}
+h1{
+	color:#D20A32;
+}
+h3{
+	color:#D20A32;
+}
+
+
+#imgScreenshots{
+width:100%;
+	display: flex;
+    flex-wrap: wrap;
+}
+.protectImg{
+	padding: 2em;
+	max-width: 50%;
+}
+
+.protectImg>img{
+	width:100%;
+}
+
+#youtubeContent{
+	display: flex;
+}
+#youtubeContentBis{
+	display: flex;
 }
