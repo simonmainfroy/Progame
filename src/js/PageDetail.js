@@ -62,7 +62,12 @@ const PageDetail = (argument) => {
           });
 
           // #########################################################
-
+          let dimitri = `
+          <div class="jumbotron" style="background-image:url(${background_image});">
+          <p class="lead text-right">
+            <button class="btn buttonWebsite"> <a href="${website}">Check Website</a></button>
+          </p>
+          </div> `
           
 
           gameDOM.querySelector("h2.title").innerHTML = name;
@@ -70,8 +75,10 @@ const PageDetail = (argument) => {
           gameDOM.querySelector("p.rating span.numberNote").innerHTML = ratings_count;
           gameDOM.querySelector("p.description").innerHTML = description;
           gameDOM.querySelector("div.release-date span.dateReleased").innerHTML = released;
-          gameDOM.querySelector("div.imgTop").innerHTML = `<img src="${background_image}" style="width:100%;">`;
-          gameDOM.querySelector("button.buttonWebsite").innerHTML = `<a href="${website}">Check Website</a> `;
+          gameDOM.querySelector("div.imgTop").innerHTML = dimitri;
+          
+          
+
           gameDOM.querySelector("div.platforms").innerHTML = platformsAvailable;
           gameDOM.querySelector("div.developers").innerHTML = developersAvailable;
           gameDOM.querySelector("div.publishers").innerHTML = publishersAvailable;
@@ -145,7 +152,7 @@ const PageDetail = (argument) => {
           for(let i = 1; i<4; i++){
             contentYoutubeBis += `
             <div>
-              <div><iframe width="420" height="345" src="https://www.youtube.com/embed/${results[i].external_id}"></iframe></div>
+              <div><iframe width="420" height="245" src="https://www.youtube.com/embed/${results[i].external_id}"></iframe></div>
               <div>
                 <h5>${results[i].channel_title}</h5>
                 <p>${results[i].created}</p>
@@ -156,7 +163,7 @@ const PageDetail = (argument) => {
 
 
           let testYoutube = `
-            <div><iframe width="420" height="345" src="https://www.youtube.com/embed/${results[0].external_id}"></iframe></div>
+            <div><iframe width="520" height="345" src="https://www.youtube.com/embed/${results[0].external_id}"></iframe></div>
             <div>
               <h5>${results[0].channel_title}</h5>
               <p>${results[0].created}</p>
