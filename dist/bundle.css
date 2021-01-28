@@ -10009,3 +10009,11 @@ h3 {
 #youtubeContentBis {
   display: flex;
 }
+
+#searchValue {
+  border-radius: 50px;
+}
+
+iframe {
+  border: none;
+}
