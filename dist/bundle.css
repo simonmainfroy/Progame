@@ -10020,7 +10020,6 @@ h5 {
   display: flex;
 }
 
-
 #youtubeContentBis div {
   margin: 1em;
 }
@@ -10035,6 +10034,7 @@ h5 {
 
 #videotrailer {
   margin-left: 32px;
+}
 
 #searchValue {
   border-radius: 50px;
