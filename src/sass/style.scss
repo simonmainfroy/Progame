@@ -5,7 +5,7 @@
   src: url('../fonts/big_noodle_titling.ttf');
 }
 
-$color-red: #D20A32; 
+$color-red: #D20A32;
 
 body {
   background-color: #191919;
@@ -20,7 +20,7 @@ a{
 p {
   color: white;
   text-align: justify;
-  
+
 }
 
 
@@ -93,6 +93,7 @@ width:100%;
 #youtubeContentBis{
 	display: flex;
 }
+
 #youtubeContentBis div{
 	margin: 1em;
 }
@@ -107,4 +108,13 @@ width:100%;
 
 #videotrailer{
 	margin-left:32px;
+}
+
+
+#searchValue {
+  border-radius: 50px;
+}
+
+iframe {
+  border: none;
 }
