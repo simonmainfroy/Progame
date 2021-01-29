@@ -49,7 +49,6 @@ p {
 	background-color:#D20A32;
 	padding: 10px;
 	color:white;
-	margin: -100px 50px;
 }
 
 .buttonWebsite a{
@@ -61,6 +60,11 @@ h1{
 }
 h3{
 	color:#D20A32;
+	font-weight:bold;
+	padding: 15px;
+}
+h5{
+	font-weight:bold;
 }
 
 
@@ -81,9 +85,31 @@ width:100%;
 #youtubeContent{
 	display: flex;
 }
+#youtubeContent div{
+	margin:15px 15px 15px 32px;
+	font-weight:bold;
+}
+
 #youtubeContentBis{
 	display: flex;
 }
+
+#youtubeContentBis div{
+	margin: 1em;
+}
+
+.jumbotron {
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  height: 700px;
+}
+
+#videotrailer{
+	margin-left:32px;
+}
+
 
 #searchValue {
   border-radius: 50px;

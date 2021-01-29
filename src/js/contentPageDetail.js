@@ -4,10 +4,8 @@ const ContentPageDetail = () =>{
 
         <div class="game">
 
-          <div class="imgTop">
-
-          </div>
-          <button class="btn buttonWebsite"> </button>
+          <div class="imgTop"> </div>
+          
           <div class="container">
           	<h2 class="title"></h2>
           	<p class="rating"> <span class="ratingNote"> </span> /5 - <span class="numberNote"></span> votes</p>
@@ -40,21 +38,21 @@ const ContentPageDetail = () =>{
         	    </div>
           	</div>
          		<div>
-          	  <h3>Buy</h3>
+          	  <h3>BUY</h3>
             	<ul class="buyStore"> </ul>
           	</div>
          	 	<div>
-            	<h3> Trailer </h3>
+            	<h3> TRAILER </h3>
             	<div id="videotrailer">
-            	<video width="640" height="480" controls>              
+            	<video width="640" height="380" controls>              
             	</video></div>
           	</div>
           	<div>
-          		<h3>Screenshots</h3>
+          		<h3>SCREENSHOTS</h3>
           		<div id="imgScreenshots"> </div>
           	</div>
           	<div>
-          		<h3>Youtube</h3>
+          		<h3>YOUTUBE</h3>
           		<div id="youtubeContent"></div>
           		<div id="youtubeContentBis"></div>
           	</div>
